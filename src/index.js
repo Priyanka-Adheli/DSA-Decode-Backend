@@ -16,7 +16,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: 'https://dsa-decode-frontend-4a6x.vercel.app/',
+    origin: 'https://dsa-decode-frontend-4a6x.vercel.app',
     credentials: true 
 }));
 app.use(cookieParser());
