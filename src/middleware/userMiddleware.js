@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const redisClient = require('../config/redis');
-const User = require('../models/userModel');
+const User = require('../models/UserModel');
 require('dotenv').config();
 
 const key = process.env.SECERT_KEY;
