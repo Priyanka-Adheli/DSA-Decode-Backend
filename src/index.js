@@ -15,10 +15,27 @@ dotenv.config();
 // Create the server
 const app = express();
 
+// app.use(cors({
+//     origin: 'https://dsa-decode-frontend-4a6x.vercel.app',
+//     credentials: true 
+// }));
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://dsa-decode-frontend-4a6x.vercel.app'
+];
+
 app.use(cors({
-    origin: 'https://dsa-decode-frontend-4a6x.vercel.app',
-    credentials: true 
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
+
 app.use(cookieParser());
 app.use(express.json());  //for parsing
 
