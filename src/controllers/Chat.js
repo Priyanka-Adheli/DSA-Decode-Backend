@@ -81,7 +81,7 @@ history: lastChat.messages.map(m=>({
     }
     catch(err)
     {
-        res.status(500).send("failed to process message");
+        res.status(500).json({reply:"Failed to process message!"});
         console.log("Error "+err.message);
     }
 }
@@ -96,7 +96,7 @@ const getAllChats = async(req,res)=>{
     }
     catch(err)
     {
-        res.status(500).json("Failed to load the chats");
+        res.status(500).json({reply:"Failed to load the chats"});
         console.log("Error "+err.message);
     }
 };
@@ -119,7 +119,7 @@ const newChat = async(req,res)=>{
     }
     catch(err)
     {
-        res.status(500).json("Failed to create new chat session");
+        res.status(500).json({reply:"Failed to create new chat session"});
         console.log("Error "+err.message);
     }
 };
